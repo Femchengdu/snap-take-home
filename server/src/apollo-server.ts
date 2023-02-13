@@ -4,6 +4,7 @@ import {
     ExpressContext,
     gql,
 } from "apollo-server-express"
+import { time } from "console"
 import * as express from "express"
 import { Server } from "http"
 import { getBlockByTimeStamp } from "./utils"
@@ -28,13 +29,9 @@ export async function createApolloServer(
     const resolvers = {
         Query: {
             getBlock: async (_: unknown, { timestamp }: { timestamp: number }) => {
-
-                const res = await getBlockByTimeStamp(timestamp)
-                console.log("the result :", res)
-                let block
-                if (res && res.block) {
-                    block = res.block
-                }
+                const miliseconds = timestamp * 1000
+                const res = await getBlockByTimeStamp(miliseconds)
+                const block: number = res.block
                 return { blockNumber: block }
             }
         },
