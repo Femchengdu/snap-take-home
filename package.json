@@ -1,0 +1,41 @@
+{
+  "name": "snap-take-home",
+  "version": "0.0.0",
+  "description": "Samuel Ajayi's solution to the take home",
+  "repository": "https://github.com/femchengdu/snap-take-home",
+  "author": "Samuel Ajayi",
+  "license": "NOLICENSE",
+  "private": true,
+  "scripts": {
+    "postinstall": "yarn build",
+    "lint": "yarn eslint . --ext .ts,.js,.tsx,.jsx",
+    "build-server": "cd server && yarn build",
+    "test-server": "cd server && yarn test",
+    "clean-server": "cd server && yarn clean",
+    "codegen-server": "cd server && yarn codegen",
+    "codegen": "concurrently yarn:codegen-* -c cyan,magenta",
+    "build": "yarn build-server",
+    "clean": "concurrently yarn:clean-* -c cyan,magenta,yellow",
+    "dev": "cd server && yarn dev"
+  },
+  "workspaces": [
+    "server"
+  ],
+  "devDependencies": {
+    "@parcel/core": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^2.6.0",
+    "process": "^0.11.10"
+  },
+  "engines": {
+    "node": "^14.19.1 || >= ^16.0 || >= ^17.0.0"
+  },
+  "volta": {
+    "node": "14.19.1",
+    "yarn": "1.22.18"
+  }
+}
