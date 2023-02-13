@@ -4,7 +4,6 @@ import {
     ExpressContext,
     gql,
 } from "apollo-server-express"
-import { time } from "console"
 import * as express from "express"
 import { Server } from "http"
 import { getBlockByTimeStamp } from "./utils"
