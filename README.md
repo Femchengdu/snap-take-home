@@ -18,6 +18,7 @@ Then, check out a local copy of this repository
 
 ```sh
 git clone https://github.com/femchengdu/snap-take-home
+
 cd snap-take-home
 ```
 
@@ -33,13 +34,21 @@ Build the project for the first time
 yarn build
 ```
 
+Create an Etherscan API key by follwoing the instructions here [ https://info.etherscan.com/api-keys/](https://info.etherscan.com/api-keys/)
+
+Then create a `.env` file and replace `changeme` with your Etherscan API key
+
+```sh
+echo ETHERSCAN_API_KEY=changeme > ./server/.env
+```
+
 And finally, start the project
 
 ```sh
 yarn dev
 ```
 
-After the client and server build processes complete, you should see an "imitation Twitter" running on [http://localhost:1234](http://localhost:1234).
+After the server build processes is complete, you should see an graphql server running on [ http://localhost:3000/graphql](http://localhost:3000/graphql).
 
 ## Legal
 
