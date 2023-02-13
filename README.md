@@ -1,4 +1,4 @@
-# Full Stack TypeScript
+# Snapshot Take Home
 
 Samuel's Snapshot take home
 
