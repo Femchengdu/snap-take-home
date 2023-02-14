@@ -2,7 +2,7 @@
   "name": "snapshot-backend-takehome",
   "version": "0.0.0",
   "main": "dist/index.js",
-  "author": "Samuel Ajayi <applications@freenovationenergysciece.com>",
+  "author": "Samuel Ajayi",
   "license": "NOLICENSE",
   "type": "commonjs",
   "private": true,
