@@ -34,6 +34,16 @@ export const getBlockByTimeStamp: (timestamp: number) => Promise<any> = async (t
             }
         }
 
+        // At this stage we should be off by a block or two
+        if (currentBlock.timestamp > timestamp) {
+            // Step back block by block
+            while (currentBlock.timestamp > timestamp) {
+                currentBlockNumber -= 1
+                currentBlock = await provider.getBlock(currentBlockNumber);
+            }
+        }
+        console.log('the current block is :', currentBlock)
+
         return currentBlock
 
     } catch (error) {
@@ -41,4 +51,3 @@ export const getBlockByTimeStamp: (timestamp: number) => Promise<any> = async (t
 
     }
 }
-
