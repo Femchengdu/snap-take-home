@@ -29,7 +29,7 @@ export async function createApolloServer(
         Query: {
             getBlock: async (_: unknown, { timestamp }: { timestamp: number }) => {
                 const res = await getBlockByTimeStamp(timestamp)
-                const block: number = res.block
+                const block: number = res.number
                 return { blockNumber: block }
             }
         },
