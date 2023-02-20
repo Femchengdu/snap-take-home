@@ -2,13 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { ethers } from "ethers";
 
-
 export const getBlockByTimeStamp: (timestamp: number) => Promise<any> = async (timestamp: number) => {
 
     try {
         // Initialize variables
-        // A block takes approximately 12 seconds
         const provider: any = new ethers.JsonRpcProvider();
+        // A block takes approximately 12 seconds
         const averageBlockTime: number = 12
         const startBlockNumber: number = await provider.getBlockNumber();
         let currentBlockNumber = startBlockNumber
@@ -25,9 +24,11 @@ export const getBlockByTimeStamp: (timestamp: number) => Promise<any> = async (t
 
         // If we back step too low
         if (currentBlock.timestamp < timestamp) {
-            // advance one block at a time 
+            // step forward a few blocks
             while (currentBlock.timestamp < timestamp) {
-                currentBlockNumber += 1
+                let timeDiffrence = timestamp - currentBlock.timestamp
+                const blockStepForward = Math.ceil(timeDiffrence / averageBlockTime);
+                currentBlockNumber += blockStepForward
                 if (currentBlockNumber > startBlockNumber) break;
                 currentBlock = await provider.getBlock(currentBlockNumber);
             }
