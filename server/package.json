@@ -24,7 +24,6 @@
     "apollo-server-core": "^3.6.5",
     "apollo-server-express": "^3.6.5",
     "chalk": "^4.0.0",
-    "dotenv": "^16.0.3",
     "ethers": "^6.0.2",
     "execa": "^5.0.0",
     "express": "^4.17.3",
