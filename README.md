@@ -34,12 +34,20 @@ Build the project for the first time
 yarn build
 ```
 
-Create an Etherscan API key by follwoing the instructions here [ https://info.etherscan.com/api-keys/](https://info.etherscan.com/api-keys/)
-
-Then create a `.env` file and replace `changeme` with your Etherscan API key
+You want to ensure you have an Ethereum node running locally by running the following commands
 
 ```sh
-echo ETHERSCAN_API_KEY=changeme > ./server/.env
+# Install homebrew Homebrew on mac and run
+brew tap ethereum/ethereum
+
+# Then install Geth
+brew install ethereum
+```
+
+Once `Geth` is properly installed you can communicate programatically to the Ethereum blockchain using JSON RPC by running
+
+```sh
+geth --http --networkid 1 --syncmode "light"
 ```
 
 And finally, start the project
