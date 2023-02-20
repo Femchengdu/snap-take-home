@@ -28,8 +28,7 @@ export async function createApolloServer(
     const resolvers = {
         Query: {
             getBlock: async (_: unknown, { timestamp }: { timestamp: number }) => {
-                const miliseconds = timestamp * 1000
-                const res = await getBlockByTimeStamp(miliseconds)
+                const res = await getBlockByTimeStamp(timestamp)
                 const block: number = res.block
                 return { blockNumber: block }
             }
