@@ -42,7 +42,6 @@ export const getBlockByTimeStamp: (timestamp: number) => Promise<any> = async (t
                 currentBlock = await provider.getBlock(currentBlockNumber);
             }
         }
-        console.log('the current block is :', currentBlock)
 
         return currentBlock
 
